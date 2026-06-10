@@ -7,13 +7,17 @@ class Solution {
         }
         for (int i : set){
             if(!set.contains(i - 1)){
-                int curr = i ;
-                int currLength = 1;
-                while (set.contains (curr + 1)){
-                    curr++;
-                    currLength ++;
+                int m = i + 1;
+                while(set.contains(m)){
+                    m++;
                 }
-                longest = Math.max(longest, currLength);
+                // int curr = i ;
+                // int currLength = 1;
+                // while (set.contains (curr + 1)){
+                //     curr++;
+                //     currLength ++;
+                // }
+                longest = Math.max(longest, m - i);
             }
         }
         return longest;
