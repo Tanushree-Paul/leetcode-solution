@@ -1,6 +1,5 @@
 class Solution {
     public long maxWeight(int[] pizzas) {
-        Arrays.sort(pizzas);
         int n = pizzas.length;
         int days = n/4;
 
@@ -9,16 +8,17 @@ class Solution {
 
         long ans = 0;
 
+        Arrays.sort(pizzas);
         int i = n-1;
 
         //odd days
-        while(odd-- > 0){
+        while(odd-- != 0){
             ans += pizzas[i];
             i--;
         }
 
         //even days
-        while(even-- >0){
+        while(even-- != 0){
             i--;
             ans += pizzas[i];
             i--;
