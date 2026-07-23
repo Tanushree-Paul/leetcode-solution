@@ -1,8 +1,8 @@
 class Solution {
 public:
     bool increasingTriplet(vector<int>& nums) {
-        int i = numeric_limits<int>::max();
-        int j = numeric_limits<int>::max();
+        int i = INT_MAX;
+        int j = INT_MAX;
         for(int k : nums){
             if(k <= i){
                 i = k;
