@@ -4,9 +4,9 @@ class Solution {
         for (int i = 0; i < nums.length; i++){
             if (nums[i] > nums[(i+1) % nums.length]){
                 count ++;
+                if(count > 1) return false;
             }
         }
-        if (count > 1) return false;
-        else return true;
+        return true;
     }
 }
