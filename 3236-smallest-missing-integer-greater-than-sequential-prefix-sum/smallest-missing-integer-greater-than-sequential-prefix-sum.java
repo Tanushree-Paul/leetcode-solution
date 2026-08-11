@@ -1,24 +1,22 @@
 class Solution {
     public int missingInteger(int[] nums) {
-        HashSet<Integer> set = new HashSet<>();
-        for (int num : nums) {
+        HashSet <Integer> set = new HashSet<>();
+        for(int num : nums){
             set.add(num);
         }
         int prefixSum = nums[0];
-
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] == nums[i - 1] + 1) {
+        for(int i = 1; i < nums.length; i++){
+            if(nums[i] - nums[i-1] == 1){
                 prefixSum += nums[i];
-            } else {
+            }
+            else{
                 break;
             }
         }
-        int candidate = prefixSum;
-
-        while (set.contains(candidate)) {
-            candidate++;
+        int no = prefixSum;
+        while(set.contains(no)){
+            no++;
         }
-
-        return candidate;
+        return no;
     }
 }
