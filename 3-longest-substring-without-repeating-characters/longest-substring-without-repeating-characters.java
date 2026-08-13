@@ -15,18 +15,35 @@ class Solution {
 
     //     return max;
     // }
-    HashMap <Character, Integer> map = new HashMap <> ();
-    int max = 0;
-    int left = 0;
+
+
+    // HashMap <Character, Integer> map = new HashMap <> ();
+    // int max = 0;
+    // int left = 0;
     
-    for (int right = 0; right < s.length(); right++){
-        if (map.containsKey(s.charAt(right))){
-            left = Math.max(left, map.get(s.charAt(right)) + 1);
+    // for (int right = 0; right < s.length(); right++){
+    //     if (map.containsKey(s.charAt(right))){
+    //         left = Math.max(left, map.get(s.charAt(right)) + 1);
+    //     }
+    //     map.put(s.charAt(right), right);
+    //     int length = right - left + 1;
+    //     max = Math.max(max, length);
+    // }
+    // return max;
+
+        int left = 0;
+        int right = 0;
+        int max = 0;
+        int freq [] = new int[256];
+        for(right = 0; right < s.length(); right++){
+            while(freq[s.charAt(right)] == 1){
+                freq[s.charAt(left)]--; 
+                left++;
+            }
+            freq[s.charAt(right)]++;
+
+            max = Math.max(max, right - left + 1);
         }
-        map.put(s.charAt(right), right);
-        int length = right - left + 1;
-        max = Math.max(max, length);
-    }
-    return max;
+        return max;
     }
 }
